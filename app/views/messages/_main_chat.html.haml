@@ -1,0 +1,27 @@
+.main_chat
+  .chat_header
+    .chat_header__top
+      .chat_header__top--title
+        group name
+      .chat_header__top--member
+        Member:
+    .chat_header__btn
+      =link_to "#",class:"chat_header__btn--icon"do
+        Edit
+  
+  .chat_contents
+    .chat_contents__top
+      .chat_contents__top--username
+        teppei
+      .chat_contents__top--datetimes
+        2019/10/07/19:12:56
+    .chat_contents__message
+      this is a first message 
+
+    .form
+      .form__btn
+        %input{name:"message",placeholder:"type a message", type:"text", class:"form__btn--message"}
+        %label{for:"image",class:"form__btn--icon"}
+          %i.fa.fa-image
+          %input{type:"file",id:"image",class: "form__btn--image--heid"}
+        %input{name:"submit", type:"submit", value:"Send",class:"form__btn--submit"}/
