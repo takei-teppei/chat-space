@@ -7,14 +7,11 @@
         %i.fa.fa-edit
       =link_to edit_user_path(current_user), class: 'header__logo--icon' do
         %i.fa.fa-cog
-  .contents
-    .contents__top
-      .contents__top--title
-        test
-      .contents__top--message
-        まだメッセージはありません
-    .contents__main
-      .contents__main--title
-        test2
-      .contents__main--message
-        まだメッセージはありません
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#',class:"group__btn"do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
