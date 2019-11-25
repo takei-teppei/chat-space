@@ -1,11 +1,11 @@
 .side_bar
   .header
     .header__name
-      Takei
+      = current_user.name
     .header__logo
       =link_to "#", class: 'header__logo--icon' do
         %i.fa.fa-edit
-      =link_to "#", class: 'header__logo--icon' do
+      =link_to edit_user_path(current_user), class: 'header__logo--icon' do
         %i.fa.fa-cog
   .contents
     .contents__top
