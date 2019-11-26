@@ -19,9 +19,10 @@
       this is a first message 
 
     .form
-      .form__btn
-        %input{name:"message",placeholder:"type a message", type:"text", class:"form__btn--message"}
-        %label{for:"image",class:"form__btn--icon"}
-          %i.fa.fa-image
-          %input{type:"file",id:"image",class: "form__btn--image--heid"}
-        %input{name:"submit", type:"submit", value:"Send",class:"form__btn--submit"}/
+      = form_for [@group, @message] do |f|
+        .form__btn
+          = f.text_field :content, class: 'form__btn--message', placeholder: 'type a message'
+          = f.label :image, class: 'form__btn--icon' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'form__btn--image--heid'
+          = f.submit 'Send', class: 'form__btn--submit'      
