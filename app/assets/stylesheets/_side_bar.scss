@@ -18,13 +18,17 @@
     font-weight:bold;
   }
   &__logo{
-    &--icon{
-      color: white;
-      text-decoration: none;
-    }
   }
 }
-    
+
+.list{
+  display: inline;
+  &__icon{
+    color: white;
+    text-decoration: none;
+  }
+}
+
 .groups{
   background-color:#2f3e51;
   width:260px;
