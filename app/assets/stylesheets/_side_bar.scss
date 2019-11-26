@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .wrapper{
   display: flex;
 }
@@ -96,6 +99,7 @@
 .chat_contents{
   height:calc(100vh - 100px);
   background-color:#fafafa;
+  overflow:scroll;
   &__top{
     display: flex;
     justify-content: left;
@@ -134,6 +138,7 @@
     padding:20px 40px;
   &--message{
     width:1000px;
+    height:50px;
     font-size:16px;
     color:#434A54;
     padding:0 40px 0 10px;
