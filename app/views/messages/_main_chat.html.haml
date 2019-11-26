@@ -10,19 +10,13 @@
         Edit
   
   .chat_contents
-    .chat_contents__top
-      .chat_contents__top--username
-        teppei
-      .chat_contents__top--datetimes
-        2019/10/07/19:12:56
-    .chat_contents__message
-      this is a first message 
+    = render @messages
 
-    .form
-      = form_for [@group, @message] do |f|
-        .form__btn
-          = f.text_field :content, class: 'form__btn--message', placeholder: 'type a message'
-          = f.label :image, class: 'form__btn--icon' do
-            = icon('fas', 'image', class: 'icon')
-            = f.file_field :image, class: 'form__btn--image--heid'
-          = f.submit 'Send', class: 'form__btn--submit'      
+  .form
+    = form_for [@group, @message] do |f|
+      .form__btn
+        = f.text_field :content, class: 'form__btn--message', placeholder: 'type a message'
+        = f.label :image, class: 'form__btn--icon' do
+          %i.fa.fa-image
+          = f.file_field :image, class: 'form__btn--image--heid'
+        = f.submit 'Send', class: 'form__btn--submit'
