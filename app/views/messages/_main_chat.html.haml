@@ -2,11 +2,12 @@
   .chat_header
     .chat_header__top
       .chat_header__top--title
-        group name
+        = @group.name
       .chat_header__top--member
-        Member:
+        - @group.users.each do|user|
+          = user[:name]
     .chat_header__btn
-      =link_to "#",class:"chat_header__btn--icon"do
+      =link_to edit_group_path(@group),class:"chat_header__btn--icon"do
         Edit
   
   .chat_contents
