@@ -1,9 +1,5 @@
 $(function(){
   function buildHTML(message){
-    var image = message.image
-      console.log(image)
-    var imageurl = message.image.url
-      console.log(imageurl)
     var image =  message.image.url?`<img class="chat_contents__message" src="${message.image.url}">`:"";
       var html = `<div class="chat_contents__top--username">
                     ${message.name}
