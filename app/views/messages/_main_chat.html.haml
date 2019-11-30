@@ -13,11 +13,11 @@
   .chat_contents
     = render @messages
 
-  .form
-    = form_for [@group, @message] do |f|
-      .form__btn
-        = f.text_field :content, class: 'form__btn--message', placeholder: 'type a message'
-        = f.label :image, class: 'form__btn--icon' do
-          %i.fa.fa-image
-          = f.file_field :image, class: 'form__btn--image--heid'
-        = f.submit 'Send', class: 'form__btn--submit'
+.form
+  = form_for [@group, @message] do |f|
+    .form__btn
+      = f.text_field :content, class: 'form__btn--message', placeholder: 'type a message'
+      = f.label :image, class: 'form__btn--icon' do
+        %i.fa.fa-image
+        = f.file_field :image, class: 'form__btn--image--heid'
+      = f.submit 'Send', class: 'form__btn--submit'
