@@ -1,7 +1,10 @@
 $(function(){
   function buildHTML(message){
-    // 「もしメッセージに画像が含まれていたら」という条件式
-    if (message.image.url) {
+    var image = message.image
+      console.log(image)
+    var imageurl = message.image.url
+      console.log(imageurl)
+    var image =  message.image.url?`<img class="chat_contents__message" src="${message.image.url}">`:"";
       var html = `<div class="chat_contents__top--username">
                     ${message.name}
                   </div>
@@ -11,19 +14,7 @@ $(function(){
                   <p class="chat_contents__message">
                     ${message.content}
                   </p>
-                  <img class="chat_contents__message" src="${message.image.url}">`
-    } 
-    else {
-      var html =`<div class="chat_contents__top--username">
-                  ${message.name}
-                 </div>
-                 <div class="chat_contents__top--datetimes">
-                  ${message.date}
-                 </div>
-                 <p class="chat_contents__message">
-                  ${message.content}
-                 </p>`
-    }
+                  ${image}`
     return html
   }
 
