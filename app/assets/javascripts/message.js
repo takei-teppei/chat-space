@@ -1,7 +1,8 @@
 $(function(){
   function buildHTML(message){
-    var image =  message.image.url?`<img class="chat_contents__message" src="${message.image.url}">`:"";
-      var html = `<div class="chat_contents__top--username">
+    var image = message.image_url?`<img class="chat_contents__message" src="${message.image_url}">`:"";
+    var html = `<div class="chat-message" data-id="${message.id}">
+                  <div class="chat_contents__top--username">
                     ${message.name}
                   </div>
                   <div class="chat_contents__top--datetimes">
@@ -10,9 +11,10 @@ $(function(){
                   <p class="chat_contents__message">
                     ${message.content}
                   </p>
-                  ${image}`
-    return html
-  }
+                    ${image}
+                </div>`
+    return html;
+  };
 
   $('#new_message').on("submit", function(e){
     e.preventDefault()
@@ -39,4 +41,28 @@ $(function(){
       $('.form__btn--submit').prop('disabled', false);
     });
   })
-});
+
+  var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $(".chat-message").last().data("data-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.chat_contents').append(insertHTML)
+        $('.chat_contents').animate({ scrollTop: $('.chat_contents')[0].scrollHeight});
+      })
+      .fail(function() {
+        console.log('error');
+      });
+    };
+  }
+  setInterval(reloadMessages, 7000);
+}); 
