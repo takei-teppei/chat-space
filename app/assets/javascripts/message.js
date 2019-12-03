@@ -60,8 +60,8 @@ $(function(){
         $('.chat_contents').animate({ scrollTop: $('.chat_contents')[0].scrollHeight});
       })
       .fail(function() {
-        console.log('error');
-      });
+        alert('error');
+      })
     };
   }
   setInterval(reloadMessages, 7000);
