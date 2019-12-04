@@ -56,8 +56,10 @@ $(function(){
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
-        $('.chat_contents').append(insertHTML)
-        $('.chat_contents').animate({ scrollTop: $('.chat_contents')[0].scrollHeight});
+        if (messages.length != 0){
+          $('.chat_contents').append(insertHTML)
+          $('.chat_contents').animate({ scrollTop: $('.chat_contents')[0].scrollHeight});
+        }
       })
       .fail(function() {
         alert('error');
