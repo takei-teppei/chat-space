@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
 }
+
 .wrapper{
   display: flex;
 }
@@ -61,7 +62,7 @@
 }
 
 .main_chat{
-  width:100%;
+  width:calc(100vw - 260px);
   position: relative;
 }
 
@@ -131,7 +132,7 @@
 
 .form{
   height:80px;
-  width:calc(100vw-300px);
+  width:calc(100vw - 260px);
   background-color: #ddd;
   position: absolute;
   left:260px;
@@ -143,7 +144,7 @@
     justify-content: space-between;
     padding:20px 40px;
   &--message{
-    width:865px;
+    width:100%;
     height:50px;
     font-size:16px;
     color:#434A54;

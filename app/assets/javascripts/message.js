@@ -44,7 +44,7 @@ $(function(){
 
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      var last_message_id = $(".chat-message").last().data("data-id");
+      var last_message_id = $(".chat-message").last().data("id");
       $.ajax({
         url: "api/messages",
         type: 'GET',
